@@ -1,0 +1,47 @@
+\documentclass[12pt]{article}
+\usepackage{makeidx}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage[dvipsnames,svgnames,table]{xcolor}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc} 
+\usepackage[english]{babel}
+\usepackage{enumerate}
+\usepackage{xcolor}
+\usepackage[normalem]{ulem}
+\usepackage{pagecolor}
+%\pagecolor{yellow!30!orange}
+\pagecolor{Tan!30!white}
+%%
+\author{}
+\title{}
+\usepackage[paperwidth=612pt,paperheight=792pt,top=32pt,right=71pt,bottom=17pt,left=71pt]{geometry}
+
+
+\makeatletter
+	\newenvironment{indentation}[3]%
+	{\par\setlength{\parindent}{#3}
+	\setlength{\leftmargin}{#1}       \setlength{\rightmargin}{#2}%
+	\advance\linewidth -\leftmargin       \advance\linewidth -\rightmargin%
+	\advance\@totalleftmargin\leftmargin  \@setpar{{\@@par}}%
+	\parshape 1\@totalleftmargin \linewidth\ignorespaces}{\par}%
+\makeatother 
+
+% new LaTeX commands
+\newfont{\letterbeta}{yinit.tfm}
+
+\begin{document}
+
+{\raggedright\scriptsize
+\begin{indentation}{84pt}{0pt}{0pt}
+{
+	{\letterbeta Z}.
+}
+\end{indentation}
+}
+
+\end{document}

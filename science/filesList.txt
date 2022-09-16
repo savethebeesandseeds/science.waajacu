@@ -1,0 +1,9 @@
+.:
+en  es	filesList.txt  template.tex
+
+./en:
+EXPENDITURE_MOTIVATION_BLOCKCHAINS/EXPENDITURE_MOTIVATION_BLOCKCHAINS.pdf
+
+./es:
+
+./

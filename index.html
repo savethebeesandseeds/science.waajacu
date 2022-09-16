@@ -1,0 +1,268 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>        
+        body {
+            background-color: #000000;
+            color: #A9A9A9;
+            font-family: 'OCR A Std', monospace;
+            font-size: 12px;
+        }
+        article {
+            background-color: #000000;
+            color: #d3aa60;
+            font-family: 'OCR A Std', monospace;
+            font-size: 12px;
+        }
+        #tabindex, #tablanguage, #tabcontent {
+            background-color: #000000;
+            color: #ffffff;
+        }
+        .light {
+            background-color: #000000;
+            color: #ffffff;
+        }
+        .gray {
+            background-color: #000000;
+            color: #A9A9A9;
+        }
+        .gold {
+            background-color: #000000;
+            color: #d3aa60;
+        }
+        .link {
+            color: #d3aa60;
+            text-decoration: none; 
+            background-color: none;
+            text-decoration-color: #d3aa60;
+        }
+        .waacamaya {
+            background-color: #000000;
+            max-width: 175px;
+        }
+        latex-js {
+            display: inline-block;
+            width: 100%;
+            border: 1px solid red;
+            margin-right: 2em;
+            background-color: #ffffff;
+            color: #000000;
+        }
+    </style>
+    <script type="module">
+        import latexjs from "https://cdn.jsdelivr.net/npm/latex.js/dist/latex.component.esm.js"
+        customElements.define('latex-js', latexjs)
+    </script>
+    <script type='text/javascript'>
+        function getPageContents(callback,url,params) {
+            console.log(`getPageContents url ::: ${url}`);
+            let http = new XMLHttpRequest();
+            if(params!=null) {
+                http.open('POST', url, true);
+                http.setRequestHeader('Content-type', 'application/');
+            } else {
+                http.open('GET', url, true);
+            }
+            http.onreadystatechange = function() {
+                callback(http.responseText);    
+            }
+            http.send(params);
+        }
+        var poems_url = window.location.origin+'/poems/filesList.txt';
+        var filesList = [];
+        var homeurlfile = window.location.origin+'/src/homeurl.txt';
+        var homeurl = []
+        getPageContents(function(result) {
+            homeurl = result.split('\n');
+            homeurl  = homeurl.filter(function (el) {
+                return el != '';
+            });
+            homeurl = homeurl[0];
+            console.log(`home url ::: ${homeurl}`);
+        }, homeurlfile, null);
+        getPageContents(function(result) {
+            filesList = result.split('\n');
+            filesList  = filesList.filter(function (el) {
+                return el != '';
+            });
+            var evt = new CustomEvent('fileListReaded', {"detail":filesList});
+            window.dispatchEvent(evt);
+        }, poems_url, null);        
+    </script> <!-- var textFromFile = (window.URL || window.webkitURL || {}).createObjectURL || function(){}; -->
+    <script type="text/javascript">
+        function reportBook(bookName){ // This communicates back to home to report lucks count.
+            var http = new XMLHttpRequest();
+            var booksurl = homeurl + '/books';
+            var body = {'book': bookName};
+            console.log(`booksurl ::: ${booksurl}`);
+            http.open('POST', booksurl, true);
+            http.setRequestHeader('Content-type', 'text/plain');
+            http.send(JSON.stringify(body));
+            return null;
+        }
+        function reportLucks(){ // This communicates back to home to report lucks count.
+            var http = new XMLHttpRequest();
+            var lucksurl = homeurl + '/lucks';
+            var body = {'lucks': {'science': clicks, 'poetry': 0, 'commerce': 0, 'waajacu': 0}};
+            console.log(`homeurl ::: ${lucksurl}`);
+            http.open('POST', lucksurl, true);
+            http.setRequestHeader('Content-type', 'text/plain');
+            http.send(JSON.stringify(body));
+            return null;
+        }
+    </script>
+    <script type='text/javascript'>
+        function changeurl(url) {
+            var new_url = '/' + url;
+            window.history.pushState('data', 'Title', new_url);
+        }
+        function displayIndex(local) {
+            var clocal = "";
+            var contentNode = document.getElementById('tablistindex');
+            while (contentNode.firstChild) {
+                contentNode.removeChild(contentNode.firstChild);
+            }
+            filesList.forEach(file=>{
+                if(file.includes('./')) {
+                    clocal = file;
+                } else if(clocal.includes(local) && file.includes('.pdf')) {
+                    fileName = file.split('.')[0];
+                    fileExt = file.split('.')[1];
+                    newelement_li = document.createElement('li');
+                    newelement_li.id = "ID_"+fileName;
+                    newelement_li_a = document.createElement('a');
+                    newelement_li_a.classList.add('link');
+                    aux_href = "javascript:displayPdfContent('"+window.location.origin+"/poems/"+local+"/"+file+"', '"+file+"');";
+                    newelement_li_a.setAttribute("href", aux_href);
+                    newelement_li_a.title = "TITLE_"+fileName;
+                    newelement_li_a.innerHTML = fileName;
+                    newelement_li.appendChild(newelement_li_a);
+                    contentNode.appendChild(newelement_li);
+                }
+            })
+            if(document.getElementById('tablistindex').children.length<1) {
+                newelement = document.createElement('li');
+                newelement.classList.add('link');
+                newelement.innerHTML = "Not poems found for language "+local;
+                contentNode.appendChild(newelement);
+            }
+        }
+    </script>
+    <script>
+        window.addEventListener("fileListReaded", function (dataEvent) {
+            var clocal = "";
+            dataEvent.detail.forEach(file=>{
+                var fileName = file.split('.')[0];
+                var fileExt = file.split('.')[1];
+                if(file.includes('./')) {
+                    clocal = file.replace(/\.\//g, '');
+                    clocal = file.replace(/\:/g, '');
+                } else if(file.includes('.pdf') && (new RegExp('(https:\/\/|http:\/\/)science\\.waajacu\\.com\/(\\??)'+fileName+'\\.'+fileExt,'gm').exec(window.location.href) !== null)) {
+                    displayPdfContent(window.location.origin+'/poems/'+clocal+'/'+file, file)
+                }
+            })
+        });
+        
+    </script>
+    <script type='text/javascript'>
+        function displayTexContent(tex_url) {
+            contentNode = document.getElementById('tabcontent');
+            while (contentNode.firstChild) {
+                contentNode.removeChild(contentNode.firstChild);
+            }
+            getPageContents(function(result) {
+                newelement_latex = document.createElement('latex-js');
+                newelement_latex.setAttribute("baseURL", "https://cdn.jsdelivr.net/npm/latex.js@0.11.1/dist/");
+                newelement_latex.innerHTML = result.toString();
+                contentNode.appendChild(newelement_latex);
+                console.log(result.toString());
+            }, tex_url, null)
+        }
+        function displayPdfContent(pdf_url,pdf_title) {
+            contentNode = document.getElementById('tabcontent');
+            while (contentNode.firstChild) {
+                contentNode.removeChild(contentNode.firstChild);
+            }
+            newelement_latex = document.createElement('object');
+            newelement_latex.setAttribute("data", pdf_url);
+            newelement_latex.setAttribute("width", "100%");
+            newelement_latex.setAttribute("height", "100%");
+
+            newelement_latex_a = document.createElement('a');
+            newelement_latex_a.setAttribute("href", `javascript:window.open("${pdf_url}");`);
+            newelement_latex_a.innerHTML = "click here to view the original PDF.";
+            newelement_latex_a.classList.add('gold');
+
+            newelement_latex.appendChild(newelement_latex_a);
+            contentNode.appendChild(newelement_latex);
+            changeurl("?"+pdf_title);
+            reportBook(pdf_url);
+        }
+    </script>
+    <script type='text/javascript'>
+        function activateTab(mainid, li_id, divid, tabid) {
+            var mainDiv = document.getElementById(mainid);
+            var li = document.getElementById(li_id);
+            var tabDiv = document.getElementById(divid);
+            var mainTab = document.getElementById(tabid);
+            for (var i = 0; i < mainDiv.childNodes.length; i++) {
+                var node = mainDiv.childNodes[i];
+                if (node.nodeType == 1) {
+                    node.style.background = (node == li) ? '#555555' : '#d3aa60;';
+                }
+            }
+            for (var i = 0; i < tabDiv.childNodes.length; i++) {
+                var node = tabDiv.childNodes[i];
+                if (node.nodeType == 1) {
+                    node.style.display = (node == mainTab) ? 'block' : 'none';
+                }
+            }
+        }
+    </script> <!-- javascript:activateTab('tablistindex','addprop','tabcontent','addprop_tab') -->
+    <script type="text/javascript">
+        var clicks = 0;
+        function highClick() {
+            clicks += 1;
+            document.getElementById("clicks").innerHTML = clicks;
+            reportLucks();
+        };
+        function lowClick() {
+            clicks -= 1;
+            document.getElementById("clicks").innerHTML = clicks;
+            reportLucks();
+        };
+        window.onbeforeunload = reportLucks;
+    </script>
+</head>
+<body>
+    <body>
+
+        <img src="./src/waacamaya_n.jpg" title="This ilustration was done by a machine at deepdreamgenerator.com/" class="waacamaya"></img>
+        <header>
+            Waajacu Science is a Blog.
+        </header>
+        <button type="button" onClick="highClick()">wish luck</button>
+        <button type="button" onClick="lowClick()">decline</button>
+        <p>lUCKS: <a id="clicks">0</a></p>
+        <div class='gold' style="font-size:small; border-style:none;">
+            contact: contact@waajacu.com
+        </div>
+        <p class="light">LANG:</p>
+        <nav id="tablanguage">
+            <ul id="tablistlanguage">
+                <li id="spanishTab"><a  class="link" href="javascript:displayIndex('es')" title="">Spanish</a></li>
+                <li id="englishTab"><a  class="link" href="javascript:displayIndex('en')" title="">English</a></li>
+            </ul>
+        </nav> <!-- End of tablanguage -->
+        <p class="light">INDEX:</p>
+        <div id="tabindex">
+            <ul id="tablistindex"></ul>
+        </div> <!-- End of tabindex -->
+        <p class="light">CONTENT:</p>
+        <div id="tabcontent" class="maintab">
+            <p class="gray">1) select language.</p>
+            <p class="gray">2) select text.</p>
+        </div> <!-- End of tabcontent -->
+    </body>
+</body>

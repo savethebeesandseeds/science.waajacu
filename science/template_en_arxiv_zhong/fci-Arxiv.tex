@@ -1,0 +1,92 @@
+\documentclass[a4paper,fleqn]{cas-sc}
+\usepackage[square,comma,numbers,sort&compress]{natbib}
+\usepackage{bm}
+
+
+\newcommand\ket [1] {|#1 \rangle }
+\newcommand\bra [1] {\langle #1 |}
+\newcommand{\bracket}[2]   {  \left<#1 |  #2\right>}
+\newcommand{\av}[1]{\langle #1\rangle}
+\newcommand{\bb}[1]{\mathbf{#1}}
+
+% Short title
+\shorttitle{Recent Developments in Fractional Chern Insulators}    
+
+% Short author
+\shortauthors{Z. Liu and E. J. Bergholtz}  
+
+\begin{document}
+\let\WriteBookmarks\relax
+\def\floatpagepagefraction{1}
+\def\textpagefraction{.001}
+
+\title[mode = title]{Recent Developments in Fractional Chern Insulators}
+
+%\tnotemark[1,2]
+
+%\tnotetext[1]{This document is the results of the research project
+   % funded by the National Science Foundation.}
+
+  %\tnotetext[2]{The second title footnote which is a longer text
+    %matter to fill through the whole text width and overflow into
+    %another line in the footnotes area of the first page.}
+
+  \author[1]{Zhao Liu}[orcid=0000-0002-3947-4882]
+  \cormark[1] 
+  %\fnmark[1] 
+  \ead{zhaol@zju.edu.cn} 
+  %\ead[url]{www.cvr.cc,www.tug.org.in}
+
+  %\credit{Conceptualization of this study, Methodology, Software}
+
+  \address[1]{Zhejiang Institute of Modern Physics, Zhejiang University, Hangzhou 310027, China}
+
+  \author[2]{Emil J. Bergholtz}[orcid=0000-0002-9739-2930]
+  \ead{emil.bergholtz@fysik.su.se}
+
+  \address[2]{Department of Physics, Stockholm University, AlbaNova University Center, 106 91 Stockholm, Sweden}
+
+  \cortext[cor1]{Corresponding author} 
+  %\cortext[cor2]{Principal corresponding author} 
+  %\fntext[fn1]{This is the first author footnote. 
+    %but is common to third author as well.}
+
+  %\fntext[fn2]{Another author footnote, this is a very long footnote
+    %and it should be a really long footnote. But this footnote is not
+    %yet sufficiently long enough to make two lines of footnote text.}
+
+  %\fntext[fn3]{K. Berry is the editor of \TeX Live.}
+
+  %\nonumnote{This note has no numbers. I}
+
+ \begin{abstract}
+Fractional Chern insulators (FCIs) are lattice generalizations of the conventional fractional quantum Hall effect (FQHE) in two-dimensional (2D) electron gases. They typically arise in a 2D lattice without time-reversal symmetry when a nearly flat Bloch band with nonzero Chern number is partially occupied by strongly interacting particles. Band topology and interactions endow FCIs exotic topological orders which are characterized by the precisely quantized Hall conductance, robust ground-state degeneracy on high-genus manifolds, and fractionalized quasiparticles. Since in principle FCIs can exist at zero magnetic field and be protected by a large energy gap, they provide a potentially experimentally more accessible avenue for observing and harnessing FQHE phenomena. Moreover, the interplay between FCIs and lattice-specific effects that do not exist in the conventional continuum FQHE poses new theoretical challenges. In this chapter, we provide a general introduction of the theoretical model and numerical simulation of FCIs, then pay special attention on the recent development of this field in moir\'e materials while also commenting on potential alternative implementations in cold atom systems. With a plethora of exciting theoretical and experimental progress, topological flat bands in moir\'e materials such as magic-angle twisted bilayer graphene on hexagonal boron nitride have indeed turned out to be a remarkably versatile platform for FCIs featuring an intriguing interplay between topology, geometry, and interactions.
+  
+  \end{abstract}
+ \begin{keywords}
+fractional Chern insulators \\  fractional quantum Hall effect \\ topological flat band \\ quantum geometry \\ moir\'e materials
+ \end{keywords}
+
+ \maketitle
+%\linenumbers
+
+\section{Introduction}
+
+
+\section{Conclusions and outlook}
+
+\begin{itemize}
+
+\item
+{\bf Exploring new platforms.}
+The recent trend of studying FCIs in moir\'e materials has clearly demonstrated the intimate relation between FCI and material science. Searching for new solid-state platforms that can host FCIs will significantly stimulate further development of this field. The research in this direction will need contributions from material calculations via, for instance, density functional theory. In fact, progress is already being made in this direction. Going beyond graphene based materials, moir\'e systems built on transition metal dichalcogenides (TMD) are found to support topological flat bands~\cite{TMD_Wu2019,TMD_DasSarma2020,Li2021,TMD_Fu2021,TMD_Fu2021_2,TMD_DasSarma2021,TMD_Zhou2022}. Excitingly, a few numerical works have identified FCIs in twisted TMD homobilayers, like twisted bilayer ${\rm MoTe}_2$~\cite{TMDFCI_Li2021} and ${\rm WSe}_2$~\cite{FCITMD_Fu}. It requires more effort to thoroughly investigate FCI states and their competing phases in these new materials. These theoretical explorations will be greatly helpful to accelerate the experimental realization of zero-field FCIs.
+
+\end{itemize}
+
+\section{Acknowledgements}
+Z. L. is supported by the National Key Research and Development Program of China through Grant No. 2020YFA0309200.
+
+\bibliographystyle{is-unsrt}
+\bibliography{mybibfile}
+
+\end{document}

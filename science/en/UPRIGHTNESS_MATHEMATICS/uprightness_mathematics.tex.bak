@@ -1,0 +1,148 @@
+\documentclass[a4paper,fleqn]{cas-sc}
+\usepackage[square,comma,numbers,sort&compress]{natbib}
+\usepackage{bm}
+
+
+\newcommand\ket [1] {|#1 \rangle }
+\newcommand\bra [1] {\langle #1 |}
+\newcommand{\bracket}[2]   {  \left<#1 |  #2\right>}
+\newcommand{\av}[1]{\langle #1\rangle}
+\newcommand{\bb}[1]{\mathbf{#1}}
+
+% Short title
+\shorttitle{Expenditure Motivation Blockchains}    
+
+% Short author
+\shortauthors{Waajacu}  
+
+\begin{document}
+\let\WriteBookmarks\relax
+\def\floatpagepagefraction{1}
+\def\textpagefraction{.001}
+
+\title[mode = title]{Expenditure Motivation Blockchains}
+
+%\tnotemark[1,2]
+
+%\tnotetext[1]{This document is the results of the research project
+   % funded by the National Science Foundation.}
+
+  %\tnotetext[2]{The second title footnote which is a longer text
+    %matter to fill through the whole text width and overflow into
+    %another line in the footnotes area of the first page.}
+
+  \author[1]{Waajacu}[orcid=0000-0001-6386-9350]
+  \cormark[1] 
+  %\fnmark[1] 
+  \ead{savethebeesandseeds@gmail.com} 
+  \ead[url]{www.waajacu.com}
+
+  %\credit{Conceptualization of this study, Methodology, Software}
+
+  \address[1]{Santiago Restrepo Ruiz, Colombia.}
+
+  \cortext[cor1]{Corresponding author} 
+  %\cortext[cor2]{Principal corresponding author} 
+  %\fntext[fn1]{This is the first author footnote. 
+    %but is common to third author as well.}
+
+  %\fntext[fn2]{Another author footnote, this is a very long footnote
+    %and it should be a really long footnote. But this footnote is not
+    %yet sufficiently long enough to make two lines of footnote text.}
+
+  %\fntext[fn3]{K. Berry is the editor of \TeX Live.}
+
+  %\nonumnote{This note has no numbers. I}
+
+ \begin{abstract}
+  Tesis; the formula relating ides to a state of action is a wepon. \\
+
+  uprightness matematics restricts weponaizable dynamics of the following procedure. 
+
+
+
+
+  to translate the state of action, 
+
+  encript the data, zero knowledge, 
+
+  protect the people, zero knowledge only the things that result in one best intrest. 
+
+  the dictionary of personal bieses. 
+
+
+
+
+
+
+
+  how may I to use the method without sharing the method. 
+
+  To relate expenditure to Honor, without reveling the formula to relate expenditure to Suffering. 
+
+  To relate expenditure to the negative of Suffering, without allowing the sing in the formula to be flip. 
+
+  Mathematics is a way of war and a way of peace, 
+
+  The matematics of non evil. 
+
+  Expenditure Motivation Features Of Capital, 
+  
+  Mechanisms of peacefull controlled unpressured path of rendition. 
+  
+  Optimization is shown benefits of a rendition by expending one's capital by maximizing 
+  universal good concepts; this is the story of how 
+  to secure the cryptografic fashion of one's conditions for rendition. 
+  
+  here is to conect language to mathematics.
+  
+  universal good concepts optimized, 
+  
+  those as universal hopefull starting, the value of determination and courage. 
+
+  I can deer tell you, liberty was a mistake in latinoamerica ---it was implemented just as abandonment. 
+
+  "Honor" has no market dumb me. !!
+
+  change the "word" or change the idea.
+
+  liberty is not those who owns the fault, 
+
+  those who owns the fault are stupid people unchequed. 
+
+  criptography as a driving force, weponaizable, 
+  ---never to be serve to those who own the fault. 
+
+  the world might get to be ok, 
+
+  I need to find peace for my self...
+
+  This is a secure encrypted signed protocol 
+  to equilibrate Karma while avoiding War. 
+  
+\end{abstract}
+ \begin{keywords}
+  Honor, Maximum Knowledge Blockchain, Blockchain, Game Theory, Liberty & Surrendering Protocols. 
+ \end{keywords}
+
+ \maketitle
+%\linenumbers
+
+\section{Introduction}
+
+\section{}
+\section{}
+\section{}
+
+\section{Conclusions and outlook}
+
+\begin{itemize}
+
+\end{itemize}
+
+\section{Acknowledgements}
+
+\bibliographystyle{is-unsrt}
+\bibliography{mybibfile}
+
+\end{document}
