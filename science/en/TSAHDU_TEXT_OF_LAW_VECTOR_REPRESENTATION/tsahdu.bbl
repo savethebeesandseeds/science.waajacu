@@ -1,3 +1,8 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
+
+\bibitem{https://doi.org/10.48550/arxiv.1706.03762}
+Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones,
+  Aidan~N. Gomez, Lukasz Kaiser, and Illia Polosukhin.
+\newblock Attention is all you need, 2017.
 
 \end{thebibliography}

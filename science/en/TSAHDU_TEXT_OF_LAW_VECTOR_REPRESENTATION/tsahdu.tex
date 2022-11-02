@@ -22,7 +22,7 @@
 \def\floatpagepagefraction{1}
 \def\textpagefraction{.001}
 
-\title[mode = title]{TSAHDU: Charter \& Law Open Source Expert System, \\Vector Representation of Meaning for Judicial Searches}
+\title[mode = title]{TSAHDU: Open Source Expert System for Law, \\Vector Representation of Meaning in Judicial Searches}
 
 %\tnotemark[1,2]
 
@@ -58,9 +58,9 @@
 
 \begin{abstract}
   Non weaponizable research the sort of Law and Market requires caution and broadcasting easy to use interfaces. 
-  Market for us is being still stabilized for a broad and stable theoretical common fortune of all participants. 
-  Effective and broad access to Law however is described in this paper; To be distributed and used without cost: 
-  https://github.com/savethebeesandseeds/tsahdu
+  Market is being still stabilized for a broad and stable theoretical common fortune of all commendable participants. 
+  Effective and broad access to Law however is intended in this paper; To be distributed and used without cost: 
+  \href{https://github.com/savethebeesandseeds/tsahdu}{https://github.com/savethebeesandseeds/tsahdu}
   
 \end{abstract}
  \begin{keywords}
@@ -71,14 +71,13 @@
 %\linenumbers
 
 \section{Introduction}
-The natural exercise of caution that comes with intelligence advice 
-those who do advanced Mathematics an assertive guide not to risk a weaponizable tool. 
-Laws sort a encyclopedic strength, this prerogative aims to reduce the barrier of 
-knowledge and reduce the price of legal advice, this tool on perpetuity free and with open access. 
+Exercise a natural advice of caution those doing advanced Mathematics, an assertive guide not to risk a weaponizable tool. 
+Laws sort a encyclopedic strength, prerogative of these with aims to reduce the barrier of 
+knowledge and the price of legal advice; a tool on perpetuity free and with open access. 
 \noindent
-The method serves to consult the state of Law and the state of Jurisprudence, given a Text describing a situation; 
-Tsahdu is a modern search engine dedicated to Law. 
-Implementation is limited to the Severn Constitution and all the Severn Codes of Conduct of the Republic of Colombia. 
+The method serves to consult the state of Law and the state of Jurisprudence, 
+given a Text describing a situation; Tsahdu is a modern search engine dedicated to Law. 
+Implementation is for now limited to the sovereign Constitution and the sovereign Codes of Law of the Republic of Colombia. 
 
 \section{Mathematical Background}
 Used basis are, real numbers: $\mathbb{R}$, integers: $\mathbb{Z}$. To represent a phrases in Human language: $\mathbb{W}$. 
@@ -105,54 +104,54 @@ Considering any paragraph or phrase is transformed into a dense vector $\{\mathc
 a document of Law is understood as a dense Matrix ${}_{\mathbb{R}^{n}\times\mathbb{R}^{d}}{\mathbf{M}}$ of size $n\times{d}$. 
 Any article larger than $s=512$ words is fragmented and averaged in vector space. \\
 \noindent
-The aforementioned transformation to vector space $\phi{}(\cdot{})$ is done using 
+The aforementioned transformation to vector space $\phi{}(\cdot{})$ is done using \cite{https://doi.org/10.48550/arxiv.1706.03762} implementations: 
 \href{https://huggingface.co/}{Natural Language Transformers Models}\footnote{https://huggingface.co/}, on what is known as a 
 \href{https://huggingface.co/sentence-transformers/}{Sentence Transformer}\footnote{https://huggingface.co/sentence-transformers/}. 
 Whereby two sentences are alike if their vector representation is alike. 
 
 
 \section{An Expert System for the Law}
-Search engines can be very complex, mixing multiple searching methods; 
-this expert system uses only the comparison in vector space. \\
+Search engines can be modular or anyway very complex, mixing multiple searching methods. 
+This expert system description considers only the comparison in vector space. \\
 \noindent
 A citizen needing advice of Law will query a description paragraph ${}_{\mathbb{W}}\mathcal{U}$, 
-the expert system will consider the query transformation $\phi({}_{\mathbb{W}}\mathcal{U})$ 
+the expert system will consider the vector coming from the query transformation $\phi({}_{\mathbb{W}}\mathcal{U})$ 
 and compare it against the matrix of Law $\mathbf{M}$. 
 Rows most similar with the user query are returned as a reference of Law, note that every row in $\mathbf{M}$ 
 has associated a specific reference of Law $\mathbb{Q}$, 
-e.g. article number $n$ in chapter $q$, title $u$ and document $z$, this is $\mathbb{Q}:<z,u,q,n>$.\\
+e.g. article number $n$ in chapter $q$, title $u$, book $w$ and document $z$, this is $\mathbb{Q}:<z,w,u,q,n>$.\\
 
 \noindent
 Regex expressions are used to separate Articles, discriminate references. 
 There is generally one Constitution and many Laws compiled in documents known as Codes. 
-Robots automates the downloading and updating of those .pdf documents, 
-further automation extracts the text content of the document and generates regular .txt files; 
+Robots automates the downloading and updating of those .pdf documents. 
+Further automation extracts the text content of the document and generates regular .txt files; 
 Finally using regular Expressions (regex) the full text is separated into individual articles with their associated reference. 
-This has been proven very stable for Colombian Law. \\
 
 \section{An Expert System for Jurisprudence}
 These are Court sentences and resolutions, serves an enormous advantage to the exercise of a Judge and required to provide a 
-proper trial. \\
-\noindent
+proper trial. Also to evaluate the cogency for the exercise of Law in a sovereign state. \\
+
 Defining a reference to a sentence of a Court dictum on \textit{Jurisprudence} searches requires the same vector approach $\phi(\cdot)$ 
 but a different indexing of phrases, as the division by articles is only found in documents of Law. To generalize 
 the technique across different type of documents, the role of $n$ is changed to the role of $\rho$. Where $\rho$ is a positive integer 
-${}^{+}\mathbb{Z}$ know as the document extension count, it varies from document to document as different documents has different sizes ---
+${}^{+}\mathbb{Z}$ know as the document density count, it varies from document to document as different documents has different sizes ---
 for example, $\rho=100$ implies a document was fragmented into 100 phrases. Creating, 
 for every document a matrix ${}_{\mathbb{R}^{\rho}\times\mathbb{R}^{d}}{\mathbf{M}}$.\\
 
 \section{Considerations of Implementation}
 Law recommendation is a sensible topic, an online open service requires an explicit caution note specifying a check statement: 
 "\color{red}\underline{this is not a professional advice of law}\color{black}". \\
-
+\noindent
 The colossal body of Jurisprudence 
-and the monumental size of Law, require computational efficiency of implementation a high performance programming language is 
+and the monumental size of Law, require computational efficiency of implementation, so a high performance programming language is 
 recommended. Robotic Web Process Automation is probably required to scrap and update Web documents. 
 Transformers Networks are downloaded pretrained for the idiom or matching tongue, further fine tuning is recommended. \\
 The sensibility of the topic involve require the Transformer Network be trained properly, 
-on a mistake in a case of Law the developers intend to show good faith by maximizing likelihood. \\
+on a mistake in a case of Law the developers intend to show good faith by maximizing likelihood on the training procedure. \\
 .pdf documents are better stored as .txt files, not every .pdf document has a straightforward way to 
 transform into a .txt, sometimes software known as optical character recognition is required. \\
+Regex as a way to segment files into articles is not very stable, on this part there is still a lot of Human work required. 
 
 \section{Vector Representation of a Phrase}
 Law is very well written, but natural language is not precise; The challenge for English is the same challenge for Spanish, 
@@ -171,7 +170,7 @@ is used to represent the Input Phrase as a Vector of embedding. \\
 \textit{For Spanish Language: \href{https://huggingface.co/hiiamsid/sentence_similarity_spanish_es}{sentence\_similarity\_spanish\_es}\footnote{https://huggingface.co/hiiamsid/sentence\_similarity\_spanish\_es} with a vector size $d=768$.}\\
 
 There are Transformers for other languages; English Model performs better than Spanish. 
-With a sufficient corpus of Law one can fine train these Models to better perform. 
+With a sufficient corpus of Law one can fine train any of these Models to better perform. 
 
 \section{Stable Embedding}
 These are some marginal operations to better represent the embedding vector: ${}_{\mathbb{R}^{d}}\mathbf{V}$. 
@@ -214,7 +213,7 @@ Where $(\cdot{})$ is the element-wise multiplication, and $\Sigma$ sums vectors.
 \noindent
 In Law, Articles are grouped in Chapters, Chapters are grouped in Titles and all Titles make a Document. 
 It is useful to know the average vector of an entire Chapter $({}_{\mathbb{W}}\mathcal{C})$, 
-Title $({}_{\mathbb{W}}\mathcal{T})$ or Document $({}_{\mathbb{W}}\mathcal{D})$, 
+Title $({}_{\mathbb{W}}\mathcal{T})$, Book $({}_{\mathbb{W}}\mathcal{B})$ or Document $({}_{\mathbb{W}}\mathcal{D})$, 
 and for long Articles also $({}_{\mathbb{W}}\mathcal{A})$. 
 ---the vector of it's member phrases average, and so on, 
 \begin{equation}
@@ -222,6 +221,7 @@ and for long Articles also $({}_{\mathbb{W}}\mathcal{A})$.
     {}_{\mathbb{R}^d}\phi({}_{\mathbb{W}}\mathcal{A}^{n}) =& \hspace{8pt} {Avg}\left(\mathbf{V}^{m}\right), \hspace{10pt} \forall m \in \mathcal{A}^{n}, \hspace{25pt} \textsf{average vector over all phrases in the nth-article}\\
     {}_{\mathbb{R}^d}\phi({}_{\mathbb{W}}\mathcal{C}^{q}) =& \hspace{8pt} {Avg}\left(\mathbf{V}^{m}\right), \hspace{10pt} \forall m \in \mathcal{C}^{q}, \hspace{28pt} \textsf{average vector over all phrases in the qth-chapter}\\
     {}_{\mathbb{R}^d}\phi({}_{\mathbb{W}}\mathcal{T}^{u}) =& \hspace{8pt} {Avg}\left(\mathbf{V}^{m}\right), \hspace{10pt} \forall m \in \mathcal{T}^{u}, \hspace{25pt} \textsf{average vector over all phrases in the uth-title}\\
+    {}_{\mathbb{R}^d}\phi({}_{\mathbb{W}}\mathcal{B}^{w}) =& \hspace{8pt} {Avg}\left(\mathbf{V}^{m}\right), \hspace{10pt} \forall m \in \mathcal{B}^{w}, \hspace{25pt} \textsf{average vector over all phrases in the wth-book}\\
     {}_{\mathbb{R}^d}\phi({}_{\mathbb{W}}\mathcal{D}) =& \hspace{8pt} {Avg}\left(\mathbf{V}^{m}\right), \hspace{10pt} \forall m. \hspace{25pt} \textsf{average vector over all phrases in the document}
   \end{split}
 \end{equation}
@@ -293,6 +293,7 @@ To end the section, let me be simple about it; if every Article is transform int
 A user input is transformed and compared against the matrix of Law $\mathbf{M}$, returning the references 
 of Law corresponding to the rows indices with the lower distance. 
 
+\newpage
 \section{Entropy, Information of the Vector Space}
 In this framework, Entropy of a Text Fragment is the Entropy of a Layer in a Natural Language Transformer Neural Network. 
 This is to say, Entropy of a Text is for this framework the Entropy of the Embedding Vector. 
@@ -307,36 +308,47 @@ Experiments for the used Transformer yield \color{brown}not determinant results\
 A way to calculate Entropy of a Phrase in Vector Space is shown, requires three steps: \\
 
 \noindent
-Calculate the Absolute Value for all the dimensions in the vector: 
-\begin{equation}
+Assert that the Vector is $\mu_{3}-normalized$. \\
+
+\noindent
+Have the Vector resemble a Discrete Distribution, on this case let's simply calculate the absolute value in all the dimensions of the vector: 
+\begin{equation}\label{eq_ent_1}
   \begin{split}
     {}_{\mathbb{R}^{d}}\mathbf{V}^{*}_{j}&=\hspace{5pt}abs({}_{\mathbb{R}^{d}}\mathbf{V}_{j})\\
   \end{split}
 \end{equation}
-This way the Vector Space resembles a Discrete Distribution, and the Entropy or the Embedding 
-uncertainty is: \\
+Finally the Entropy is: \\
 \begin{equation}
   \begin{split}
     _{\mathbb{R}}\mathbf{H}_{\mathbf{V}}&=\hspace{5pt} (-1) \cdot{}\sum_{j=1}^{d}\mathbf{V}^{*}_{j}*log_{2}(\mathbf{V}^{*}_{j})\hspace{8pt} [Shannon]  
   \end{split}
 \end{equation}
-\section{Documents, Titles, Chapters and Articles}
-There is an Average Vector for every Document, for every Title, Chapter and every Article. 
+Again, this yield \color{brown}not determinant results\color{black}. The problem is that the Dense vector is defined over positive and negative real numbers, 
+a better way to perform the operation in equation \ref{eq_ent_1} will unlock the whole science of information theory. On research I try on with building 
+parametric distributions, and also try on having the negative values be a separated distribution and compute the join Entropy, but had no significant results. 
+Maybe the solution be on changing the Network Architecture and training with Cross Entropy. 
 
-\section{Robotic Process Automation}
-
+\newpage
 \section{Results}
-Implemented in Rustc Language for the Colombian Constitution 
-and for all the Colombian Laws in the Republic (count 2359 as of 10/2022), 
-a server to provide free access was mounted and hosted locally, 
-using a Spanish Language Transformer \href{https://huggingface.co/hiiamsid/sentence_similarity_spanish_es}{sentence\_similarity\_spanish\_es} 
-with a maximum phrase size of $s=512$ words and overlapping of 64 Words, yielded the following example results:  
+Implemented in Rustc Language for the Colombian Constitution and for the Colombian Codes of Law in the Republic. 
+Source code is available with open access at \href{https://github.com/savethebeesandseeds/tsahdu}{https://github.com/savethebeesandseeds/tsahdu}. 
+A demo server was mounted and hosted locally \href{http://www.waajacu.com}{http://www.waajacu.com}. \\
 
-\section{Conclusions and outlook}
-The server is functional and mounted for the Colombian Law, Jurisprudence searches resulted too extensive to be solved and hosted on a 
-home machine. 
+Achieve a high velocity and a stable implementation 
+using a Spanish Language Transformer \href{https://huggingface.co/hiiamsid/sentence_similarity_spanish_es}{sentence\_similarity\_spanish\_es} 
+with a maximum phrase size of $s=512$ words and overlapping of $g=64$ words.
+
+Complications on gathering the data, .txt files for all Codes of Law and .txt file Article segmentation. 
+
+\section{Future Work}
+Refine the current work, implement for other languages and for other countries. 
+A better comprehension for the Entropy of the Vector Space will suffice the base for all the information analytics. 
 
 \section{Acknowledgments}
+This work was not granted any private or public founds. Research and development was intended for non profit and was done by Waajacu. 
+All the mistakes are my own, to be acknowledge are the Mathematicians who developed the state of the Art for Natural Language Understanding 
+and the cooperation of Machines. 
+
 \bibliographystyle{is-unsrt}
 \bibliography{mybibfile}
 
