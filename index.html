@@ -69,7 +69,7 @@
             }
             http.send(params);
         }
-        var poems_url = window.location.origin+'/poems/filesList.txt';
+        var science_url = window.location.origin+'/science/filesList.txt';
         var filesList = [];
         var homeurlfile = window.location.origin+'/src/homeurl.txt';
         var homeurl = []
@@ -88,7 +88,7 @@
             });
             var evt = new CustomEvent('fileListReaded', {"detail":filesList});
             window.dispatchEvent(evt);
-        }, poems_url, null);        
+        }, science_url, null);        
     </script> <!-- var textFromFile = (window.URL || window.webkitURL || {}).createObjectURL || function(){}; -->
     <script type="text/javascript">
         function reportBook(bookName){ // This communicates back to home to report lucks count.
@@ -133,7 +133,7 @@
                     newelement_li.id = "ID_"+fileName;
                     newelement_li_a = document.createElement('a');
                     newelement_li_a.classList.add('link');
-                    aux_href = "javascript:displayPdfContent('"+window.location.origin+"/poems/"+local+"/"+file+"', '"+file+"');";
+                    aux_href = "javascript:displayPdfContent('"+window.location.origin+"/science/"+local+"/"+file+"', '"+file+"');";
                     newelement_li_a.setAttribute("href", aux_href);
                     newelement_li_a.title = "TITLE_"+fileName;
                     newelement_li_a.innerHTML = fileName;
@@ -144,7 +144,7 @@
             if(document.getElementById('tablistindex').children.length<1) {
                 newelement = document.createElement('li');
                 newelement.classList.add('link');
-                newelement.innerHTML = "Not poems found for language "+local;
+                newelement.innerHTML = "Not science found for language "+local;
                 contentNode.appendChild(newelement);
             }
         }
@@ -159,7 +159,7 @@
                     clocal = file.replace(/\.\//g, '');
                     clocal = file.replace(/\:/g, '');
                 } else if(file.includes('.pdf') && (new RegExp('(https:\/\/|http:\/\/)science\\.waajacu\\.com\/(\\??)'+fileName+'\\.'+fileExt,'gm').exec(window.location.href) !== null)) {
-                    displayPdfContent(window.location.origin+'/poems/'+clocal+'/'+file, file)
+                    displayPdfContent(window.location.origin+'/science/'+clocal+'/'+file, file)
                 }
             })
         });
