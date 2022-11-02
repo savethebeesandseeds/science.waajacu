@@ -5,5 +5,5 @@ en  es	filesList.txt  template.tex
 TSAHDU_TEXT_OF_LAW_VECTOR_REPRESENTATION/tsahdu.pdf
 
 ./es:
-
+Tesis_Modelo_de_un_delta_amortiguado.pdf
 ./
